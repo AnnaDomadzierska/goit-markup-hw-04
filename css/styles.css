@@ -26,9 +26,16 @@ body {
 h1,
 h2,
 h4,
+h5,
+h6,
 p {
   margin: 0;
   padding: 0 auto;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 .container {
   margin: 0 auto;
@@ -171,7 +178,6 @@ p {
   max-width: 1600px;
   height: 600px;
   margin: 0 auto;
-  box-sizing: border-box;
   text-align: center;
 }
 .primary-title {
@@ -206,6 +212,19 @@ p {
 .containder-section{
   padding-top: 94px;
 }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
 .containder-section .list {
   display: flex;
   gap: 30px;
@@ -220,36 +239,18 @@ p {
 }
 .fourth-title {
   font-weight: 700;
-  font-size: 14px;
-  line-height: 11.14;
-  letter-spacing: 0.03em;
+  line-height: 1.14;
   text-transform: uppercase;
   color: var(--title-color);
-  display: inline;
-  display: flex;
-  text-align: left;
-  padding-bottom: 10px;
-  margin: 0;
-  line-height: 80%;
+  margin-bottom: 10px;
 }
 .description {
-  font-size: 14px;
   line-height: 1.71;
-  letter-spacing: 0.03em;
   color: var(--description-color);
-  display: flex;
-  text-align: left;
-  word-wrap: normal;
-  max-width: 270px;
 }
 
 /* THIRD SECTION */
 
-.column {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
 .container .list-secondary {
   display: flex;
   flex-wrap: nowrap;
@@ -272,26 +273,14 @@ p {
   text-align: center;
   letter-spacing: 0.03em;
   color: var(--title-color);
-  padding-bottom: 50px;
-  margin: 0;
+  margin-bottom: 50px;
 }
 
 /* FOURTH SECTION */
 
-figure {
-  margin: 0;
-}
-.team-members .list {
+.team-list {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: stretch;
-  text-align: center;
-  justify-content: center;
-  margin: 0;
   gap: 30px;
-  max-width: 1170px;
-  padding: 0;
 }
 .name {
   font-weight: 500;
@@ -300,8 +289,8 @@ figure {
   text-align: center;
   letter-spacing: 0.03em;
   color: var(--title-color);
-  padding-top: 30px;
-  padding-bottom: 10px;
+  margin-top: auto;
+  margin-bottom: 10px;
 }
 .job-title {
   font-size: 16px;
@@ -309,7 +298,7 @@ figure {
   text-align: center;
   letter-spacing: 0.03em;
   color: var(--description-color);
-  padding-bottom: 30px;
+  margin-bottom: 16px;
 }
 .box {
   background: var(--white);
@@ -318,14 +307,13 @@ figure {
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
 }
+.social-links-section {
+  padding: 30px 0;
+}
 .social-links {
-  text-decoration: none;
-  list-style: none;
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  padding: 0;
-  margin-bottom: 30px;
+  justify-content: center;
+  gap: 10px;
 }
 .social-links-item {
   width: 44px;
@@ -338,11 +326,10 @@ figure {
   border-radius: 50%;
   cursor: pointer;
 }
-.social-links-item:hover {
+.social-links-item:hover,
+.social-links-item:focus {
   background-color: var(--brand-color);
-  fill: var(--description-color);
   fill: var(--white);
-  transition: 0.35s;
 }
 
 /* FIVTH SECTION*/
@@ -377,20 +364,15 @@ figure {
 
 .footer {
   background: var(--background-for-title);
-}
-.container .address {
-  display: block;
+  padding: 60px 0;
 }
 .footer-section{
-  padding-top: 0;
-  padding-bottom: 0;
   display: flex;
-  flex-direction: row;
+  align-items: baseline;
   gap: 70px;
 }
 .address {
   font-style: initial;
-  padding: 60px 0;
 }
 .logo-footer {
   margin-left: 0px;
@@ -428,21 +410,10 @@ figure {
   max-width: 110px;
 }
 .join-us{
-  font-family: Roboto;
-  font-size: 14px;
   font-weight: 700;
   line-height: 1.17;
-  letter-spacing: 0.03em;
   color: var(--white);
-  padding-bottom: 20px;
-  margin: 12px 0 0;
-  display: flex;
-  justify-content: flex-start;
-}
-.social-media {
-  display: flex;
-  flex-direction: column;
-  padding: 60px 0;
+  margin-bottom: 20px;
 }
 .social-links-footer {
   text-decoration: none;
@@ -488,13 +459,9 @@ figure {
 }
 .button-list {
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: center;
   gap: 8px;
-  padding-bottom: 16px;
-  padding-top: 12px;
-  margin: 0;
+  margin-bottom: 50px;
 }
 .button-filters:hover {
   background-color: var(--brand-color);
@@ -509,21 +476,10 @@ figure {
 .portfolio-item {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  text-align: center;
-  justify-content: center;
-  max-width: 1200px;
   gap: 30px;
-  padding: 0;
-  margin-bottom: 116px;
-  margin-top: 34px;
 }
 .box-two {
-  box-sizing: border-box;
-  background: var(--white);
-  flex-basis: calc((100% - 60px) / 3);
-  transition: box-shadow 500ms;
-  max-width: 370px;
+  width: 370px;
 }
 .box-two:hover {
   cursor: pointer;
@@ -532,8 +488,8 @@ figure {
   0px 1px 1px 0px rgba(0, 0, 0, 0.12);
 }
 .border {
-  height: 110px;
-  border-bottom: 1px solid var(--box-two-border);
+  padding: 20px 24px;
+  border: 1px solid var(--box-two-border);
 }
 .thirdry-title {
   font-weight: 700;
@@ -541,18 +497,10 @@ figure {
   line-height: 2;
   letter-spacing: 0.06em;
   color: var(--title-color);
-  padding-left: 24px;
-  padding-top: 20px;
-  display: flex;
-  text-align: left;
 }
 .description-two {
   font-size: 16px;
   line-height: 2.25;
   letter-spacing: 0.03em;
   color: var(--sonic-silver);
-  padding-left: 24px;
-  padding-bottom: 20px;
-  display: flex;
-  text-align: left;
 }
